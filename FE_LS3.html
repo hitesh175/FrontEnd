@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body bgcolor="wheat">
+    <center>
+      <h1> VALIDATION </h1>
+      <form>
+        <fieldset>
+          <legend>Form Validation</legend> Name : <input type="TEXT" placeholder="Enter your Name" id="name" name="name" required>
+          <br>
+          <br> Date of Birth : <input type="date" id="dob" name="dob" required />
+          <br>
+          <br>
+          <div id="age-range">
+            <label for="age"> Age: <input type="range" id="age" name="age" min="18" max="100" />
+              <br>
+              <br>
+              <span class="age-value"></span>
+          </div>
+          <div id="email-group"> Email : <input type="email" id="email" name="email" required />
+            <br>
+            <br>
+          </div>
+          <div id="website-group"> Website : <input type="url" id="website" name="website" />
+            <br>
+            <br>
+          </div>
+          <button type="submit">Sign Up</button>
+        </fieldset>
+      </form>
+    </center>
+
+    <script>
+        const agerange = document.getElementById('age-range');
+        const emailgroup = document.getElementById('email-group')
+        const websitegroup = document.getElementById('website-group')
+        agerange.style.display = 'none';
+        emailgroup.style.display = 'none';
+        websitegroup.style.display = 'none';
+        document.getElementById('dob').addEventListener('change', function() {
+            const age = calculateAge(this.value) 
+            if (age < 18) {
+                agerange.style.display = 'none';
+                emailgroup.style.display = 'none';
+                websitegroup.style.display = 'none';
+            } else if (age >= 18 && age <= 25) {
+                agerange.style.display = 'block';
+                emailgroup.style.display = 'block';
+                websitegroup.style.display = 'none';
+            } else {
+                agerange.style.display = 'block';
+                emailgroup.style.display = 'block';
+                websitegroup.style.display = 'block';
+            }
+            agerange.querySelector('.age-value').innerHTML = age;
+            agerange.querySelector('input').value = age;
+        });
+        document.querySelectorAll('input[required]').forEach((input) => {
+            input.addEventListener('invalid', function() {
+                this.setCustomValidity('Please fill out this field.');
+            });
+            input.addEventListener('input', function() {
+                this.setCustomValidity('');
+            });
+        });
+        
+        function calculateAge(birthday) {
+            const today = new Date();
+            const birthDate = new Date(birthday);
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            return age;
+        }
+        document.getElementById('age').addEventListener('input', function() {
+            document.querySelector('.age').innerHTML = this.value;
+        });
+</script>
+  </body>
+</html>
