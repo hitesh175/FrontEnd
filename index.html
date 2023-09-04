@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hitesh K R</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
     <style>
         :root {
             --color: #000000b7;
@@ -251,9 +254,6 @@
   margin: 0;
 }
 
-.subtitle {
-}
-
 .aurora {
   position: absolute;
   top: 0;
@@ -416,6 +416,66 @@
   }
 }
 
+    /*end footer*/
+    .end{
+    margin:0;
+    overflow-x:hidden;
+    }
+    
+    .footer{
+    background:#000;
+    padding:30px 0px;
+    font-family: 'Play', sans-serif;
+    text-align:center;
+    }
+    
+    .footer .row{
+    width:100%;
+    margin:1% 0%;
+    padding:0.6% 0%;
+    color:gray;
+    font-size:0.8em;
+    }
+    
+    .footer .row a{
+    text-decoration:none;
+    color:gray;
+    transition:0.5s;
+    }
+    
+    .footer .row a:hover{
+    color:#fff;
+    }
+    
+    .footer .row ul{
+    width:100%;
+    }
+    
+    .footer .row ul li{
+    display:inline-block;
+    margin:0px 30px;
+    }
+    
+    .footer .row a i{
+    font-size:2em;
+    margin:0% 1%;
+    }
+    
+    @media (max-width:720px){
+    .footer{
+    text-align:left;
+    padding:5%;
+    }
+    .footer .row ul li{
+    display:block;
+    margin:10px 0px;
+    text-align:left;
+    }
+    .footer .row a i{
+    margin:0% 3%;
+    }
+    }
+
     </style>
 </head>
 <body>
@@ -544,6 +604,25 @@
     </ul>
 </div>
 </div>
+
+
+<footer>
+    <div class="end">
+    <div class="footer">
+    <div class="row">
+    <a href="https://www.linkedin.com/in/hitesh-k-r/"><i class="fa fa-linkedin"></i></a>
+    <a href="https://github.com/hitesh175"><i class="fa fa-github"></i></a>
+    </div>
+    
+    <div class="row">
+    </div>
+    
+    <div class="row">
+    Copyright ©  Hitesh.K.R - All rights reserved || Designed By: HITESH
+    </div>
+    </div>
+    </div>
+    </footer>
 
 </body>
 </html>
